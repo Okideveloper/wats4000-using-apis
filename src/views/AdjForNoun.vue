@@ -1,14 +1,13 @@
 <template>
-  <div class="rhymesaurus">
-    <h2>Rhymesaurus: The Rhyming Thesaurus</h2>
+  <div class="adjfornoun">
+    <h2>Fun with Adjectives</h2>
     <p>
-      <router-link to="/adjfornoun">Fun with Adjectives</router-link>
+      <router-link to="/">Home: Rhyming Rhymesaurus</router-link>
     </p>
     <form v-on:submit.prevent="findWords">
       <p>
-        Find rhymes for
-        <input type="text" v-model="rhyme"> related to
-        <input type="text" v-model="phrase">
+        Find an Adjective for a givin Noun
+        <input type="text" v-model="noun">
         <button type="submit">Search</button>
       </p>
     </form>
@@ -40,13 +39,12 @@
 import axios from "axios";
 
 export default {
-  name: "Rhymesaurus",
+  name: "AdjForNoun",
   data() {
     return {
       results: null,
       errors: [],
-      phrase: "",
-      rhyme: ""
+      noun: ""
     };
   },
   // Created an axios.get statement that requests from https://api.datamuse.com/words
@@ -55,8 +53,7 @@ export default {
       axios
         .get("https://api.datamuse.com/words", {
           params: {
-            ml: this.phrase,
-            rel_rhy: this.rhyme
+            rel_jjb: this.noun
           }
         })
         .then(response => {
@@ -72,7 +69,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.rhymesaurus {
+.adjfornoun {
   font-size: 1.4rem;
 }
 
@@ -111,12 +108,12 @@ ul.results {
 .results li {
   display: inline-block;
   margin: 10px;
-  border: solid 1px rgb(107, 31, 31);
+  border: solid 1px #333;
   padding: 0.5rem;
   width: 200px;
   min-height: 100px;
-  color: rgb(248, 241, 241);
-  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  background: rgba(248, 246, 246, 0.7);
 }
 ul.errors {
   list-style-type: none;

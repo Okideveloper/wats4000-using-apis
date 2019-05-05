@@ -1,23 +1,29 @@
 <template>
   <div id="app">
-    <h1>Rhymesaurus: The Rhyming Thesaurus</h1>
+    <h1>Datamuse</h1>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
-}
+  name: "app"
+};
 </script>
 
 <style>
+body {
+  background-color: rgb(70, 50, 117);
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  padding-block-start: 100px;
+  padding-block-end: 50px;
+  background-color: blanchedalmond;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 150px;
 }
 </style>
